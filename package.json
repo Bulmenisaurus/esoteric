@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "build": "esbuild src/script.tsx --bundle --outdir=dist --jsx-factory=h --minify",
+    "serve": "esbuild src/script.tsx --bundle --outdir=dist --watch --servedir=. --jsx-factory=h --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.25.12",
+    "highlight.js": "^11.11.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  }
+}

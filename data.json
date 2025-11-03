@@ -1,0 +1,12 @@
+[
+  {
+    "tags": [],
+    "title": "Hello, World!",
+    "code": "chr(sum(range(ord(min(str(not()))))))"
+  },
+  {
+    "code": "vars(\nvars(\n)['_\\\n_bui\\\nltin\\\ns__']\n)['p\\\nrint'\n]('H\\\nello\\\n, Wo\\\nrld!'\n)####\n",
+    "title": "Hello, World!",
+    "tags": []
+  }
+]

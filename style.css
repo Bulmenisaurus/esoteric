@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.entry.active {
+    display: block;
+}
+
+.entry.inactive {
+    display: none;
+}
+
+.entry {
+    border: 1px solid #000;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 5px;
+}
+
+button {
+    font-family: monospace;
+    background-color: white;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
