@@ -12,9 +12,12 @@
     align-items: center;
 }
 
-h1 {
+html {
     font-family: monospace;
-    font-size: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
     font-weight: bold;
     margin: 10px;
 }
@@ -29,6 +32,23 @@ h1 {
 
 .entry {
     border: 1px solid #000;
+}
+
+.tag {
+    font-size: 0.8rem;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+pre {
+    max-width: 80vw;
+    white-space: pre-wrap;
 }
 
 #buttons {
