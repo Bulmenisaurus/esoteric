@@ -1,10 +1,5 @@
 [
   {
-    "title": "lispy",
-    "tags": [],
-    "code": "chr(sum(range(ord(min(str(not()))))))"
-  },
-  {
     "title": "Most Significant Digit",
     "tags": [],
     "code": "f=\"%.1s\".__mod__"
@@ -31,8 +26,8 @@
   },
   {
     "title": "cold jail",
-    "tags": [],
-    "code": "# like any jail, you need to exfiltrate the contents of flag.txt (either to stdout or stderr)\nimport re\n\ndef curry(a):\n    def X(b):\n        def Y(c):\n            # todo: fix typo\n            return a(c(b))\n        return Y\n    return X\n\n\ncode = input()\n\n# it's cold outside, all your functions need something warm to wear\nassert re.match(r\"^(\\([a-z]+\\))*$\", code), \"wrong format\"\nassert all(x not in code for x in (\"eval\", \"exec\", \"breakpoint\")), \"no rce please\"\nassert len(code) < 105, \"too long\"\n\neval(code)"
+    "tags": ["jail", "3.12"],
+    "code": "# like any jail, you need to get the contents of flag.txt\nimport re\n\ndef curry(a):\n    def X(b):\n        def Y(c):\n            # todo: fix typo\n            return a(c(b))\n        return Y\n    return X\n\n\ncode = input()\n\n# it's cold outside, all your functions need something warm to wear\nassert re.match(r\"^(\\([a-z]+\\))*$\", code), \"wrong format\"\nassert all(x not in code for x in (\"eval\", \"exec\", \"breakpoint\")), \"no rce please\"\nassert len(code) < 105, \"too long\"\n\neval(code)"
   },
   {
     "title": "paraconsistency",
@@ -42,11 +37,16 @@
   {
     "title": "tutorial",
     "tags": [],
-    "code": "# simple python operator tutorial\n# created by bulmenisaurus. part of the timed programming session. time spent coding: 437 seconds (~7 minutes). \n\na=b=1\na=‍=b # -> true\na!=b # -> false\n\n# integer division (repeating operator means integer result)\nprint(a // b) # -> 1\n\n# ** means integer multiplication\na, b = 10, 5\nprint(a *‍* b) # -> 50\n\n# same with modulo (python uses %)\nprint(a %‍% b) # -> 0\n\n# like other c like lanaguages, python has -- and ++\nprint(+‍+a) # -> 11\na--‍\nprint(a) # -> 10"
+    "code": "# simple python operator tutorial\n# created by bulmenisaurus. part of the timed programming session. time spent coding: 437 seconds (~7 minutes).\n#note: needs to be run in a standalone script\n\na=b=1\na=‍=b # -> true\na!=b # -> false\n\n# integer division (repeating operator means integer result)\nprint(a // b) # -> 1\n\n# ** means integer multiplication\na, b = 10, 5\nprint(a *‍* b) # -> 50\n\n# same with modulo (python uses %)\nprint(a %‍% b) # -> 0\n\n# like other c like lanaguages, python has -- and ++\nprint(+‍+a) # -> 11\na--‍\nprint(a) # -> 10"
   },
   {
     "title": "brainfuck",
     "tags": ["3.12"],
     "code": "set((((code_pointer)in(range(len(bf))))or(exit()))and((char)in(str(float()))and(print(end=chr(tape_value))))for(l)in(str(int()))for(bf)in(ascii(input())for(l)in(l))for(byte)in(sum(len(str(filter))for(i)in(range(len(str(filter)))))for(l)in(l))for(byte_max)in(max(range(byte))for(l)in(l))for(open_bracket)in(min(str(list()))for(l)in(l))for(close_bracket)in(max(str(list()))for(l)in(l))for(code_pointer)in(range(not()))for(tape_pointer)in(range(not()))for(tape)in(bytes(sum(range(ord(str(int())))))for(l)in(l))for(brackets)in(list(tuple((next(iter(j)))if(i)else(popped)for(i)in(range(len(str(())))))for(stack)in(list()for(l)in(l))for(j)in(enumerate(bf))for(iter_stack)in(iter(stack)for(l)in(l))for(stack)in(list((i)and(next(iter_stack))or(next(iter(j)))for(i)in(range(sum(len(stack)if(i)else(not())for(i)in(range(len(str(()))))))))if(open_bracket)in(j)else(stack)for(l)in(l))if(close_bracket)in(j)for(iter_stack)in(iter(stack)for(l)in(l))for(popped)in(next(iter_stack)for(l)in(l))for(stack)in(list(iter_stack)for(l)in(l)))for(l)in(l))for(idx)in(range(id(id)))for(char)in(max(next(reversed(j))for(j)in(enumerate(bf))if(code_pointer)in(j)))for(tape)in(list(((int()if(not(next(reversed(j))in(range(byte))))else(sum(not()if(i)else(next(reversed(j)))for(i)in(range(len(str(())))))))if(char)in(str(complex(not())))else(max(range(next(reversed(j))))if(next(reversed(j)))else(byte_max))if((char)in(chr(len(str(slice(divmod))))))else(ord(input()or(chr(int()))))if((char)in(chr(len(str(slice(aiter))))))else(next(reversed(j))))if(next(iter(j))in((tape_pointer)for(l)in(l)))else(next(reversed(j)))for(j)in(enumerate(tape)))for(l)in(l))for(tape_pointer)in(max(range(tape_pointer))if((char)in(chr(len(str(set(str(type)))))))else(sum(not()if(i)else(tape_pointer)for(i)in(range(len(str(()))))))if((char)in(chr(len(str(slice(license))))))else(tape_pointer)for(l)in(l))for(tape_value)in(next(reversed(j))for(j)in(enumerate(tape))if(next(iter(j)))in((tape_pointer)for(l)in(l)))for(code_pointer)in(sum((code_pointer)if(i)else(not())for(i)in(range(len(str(())))))if(not((char)in(str(list()))))or((char)in(open_bracket)and(tape_value))or((char)in(close_bracket)and(not(tape_value)))else(next(next((i)for(i)in(pair)if(not(i)in((code_pointer)for(l)in(l))))for(pair)in(brackets)if(code_pointer)in(pair)))for(l)in(l))"
+  },
+  {
+    "title": "login",
+    "tags": ["jail", "3.12"],
+    "code": "import codecs\npassword = \"lucky!\"\nwhile password:\n    func = [codecs.decode, codecs.encode][input(\"which one [e/d] \") == \"e\"]\n    password = func(password, input(\"how \"), \"strict\")\n    print(password)\nprint(\"Welcome to macOS\")\nprint(open(\"flag.txt\").read())"
   }
 ]

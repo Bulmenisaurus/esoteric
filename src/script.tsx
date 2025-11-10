@@ -59,12 +59,66 @@ const next = (current: number, max: number): number => {
     return current + 1;
 };
 
+const openAboutPopup = () => {
+    const popup = document.getElementById('about-popup');
+    if (popup) {
+        popup.style.display = 'flex';
+    }
+};
+
+const closeAboutPopup = () => {
+    const popup = document.getElementById('about-popup');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+};
+
 const populateData = (data: Data) => {
     const container = document.getElementById('main');
     if (!container) return;
 
     let active = getActive();
     let max = data.length - 1;
+
+    // Add about link in upper left corner
+    const aboutLink = (
+        <button
+            id='about-link'
+            onClick={() => {
+                openAboutPopup();
+            }}
+        >
+            About
+        </button>
+    );
+    container.appendChild(aboutLink);
+
+    // Add popup modal
+    const popup = (
+        <div id='about-popup' className='popup-overlay' onClick={closeAboutPopup}>
+            <div className='popup-content' onClick={(e: Event) => e.stopPropagation()}>
+                <button className='popup-close' onClick={closeAboutPopup}>
+                    ×
+                </button>
+                <h2>About</h2>
+                <p>
+                    This is a collection of some of my favorite snippets of python. All are created
+                    by me unless otherwise specified.
+                </p>
+            </div>
+        </div>
+    );
+    container.appendChild(popup);
+
+    // Add Escape key handler to close popup
+    window.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            const popup = document.getElementById('about-popup');
+            if (popup && popup.style.display === 'flex') {
+                closeAboutPopup();
+            }
+        }
+    });
 
     container.append(
         <main>
