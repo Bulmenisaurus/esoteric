@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+        <style>
+            article {
+                margin: 0 auto;
+                max-width: 80ch;
+            }
+
+            pre {
+                margin: 0;
+            }
+            fieldset {
+                margin: 1em 0;
+            }
+
+            legend {
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1>jail problems</h1>
+            I was recently inspired by the
+            <a href="https://ctf.pyjail.club/">jailctf</a> competition to try a hand at making my
+            own jail-type problems in python. Here are two of my attempts :)
+            <h2>Cold jail</h2>
+            This one should work in any python version.
+            <fieldset>
+                <legend>cold.py</legend>
+                <pre><code class="language-python"># like any jail, you need to get the contents of flag.txt
+import re
+
+def curry(a):
+    def X(b):
+        def Y(c):
+            # todo: fix typo
+            return a(c(b))
+        return Y
+    return X
+
+
+code = input()
+
+# it's cold outside, all your functions need something warm to wear
+assert re.match(r"^(\([a-z]+\))*$", code), "wrong format"
+assert all(x not in code for x in ("eval", "exec", "breakpoint")), "no rce please"
+assert len(code) < 105, "too long"
+
+eval(code)</code></pre>
+            </fieldset>
+            <p>
+                This is definitely the simpler one, but I just thought this way of writing code was
+                funny.
+            </p>
+            <h2>Login</h2>
+            <fieldset>
+                <legend>login.py</legend>
+                <pre><code class="language-python">import codecs
+password = "lucky!"
+
+while password:
+    func = [codecs.decode, codecs.encode][input("which one [e/d] ") == "e"]
+    password = func(password, input("how "))
+    print(password)
+
+print("Welcome to macOS")
+print(open("flag.txt").read())</code></pre>
+            </fieldset>
+            <p>
+                To log into this server and access the file, all you need to do is login with an
+                empty password. Thankfully, all python codecs are reversible, <em>right</em>? I
+                tested my solution on 3.12.
+            </p>
+        </article>
+    </body>
+</html>
