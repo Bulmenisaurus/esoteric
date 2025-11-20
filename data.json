@@ -48,5 +48,15 @@
     "title": "login",
     "tags": ["jail", "3.12"],
     "code": "import codecs\npassword = \"lucky!\"\nwhile password:\n    func = [codecs.decode, codecs.encode][input(\"which one [e/d] \") == \"e\"]\n    password = func(password, input(\"how \"), \"strict\")\n    print(password)\nprint(\"Welcome to macOS\")\nprint(open(\"flag.txt\").read())"
+  },
+  {
+    "title": "Misencoded",
+    "tags": [],
+    "code": "print(\n    \"\".encode(\"utf_8_sig\")\n    .decode(\"mac_croatian\")\n    .encode(\"cp037\")\n    .decode(\"mac_latin2\")\n    .encode(\"euc_jis_2004\")\n    .decode(\"cp1251\")\n    .encode(\"koi8_u\")\n    .decode(\"big5\")\n    .encode(\"cp949\")\n    .decode(\"cp273\")\n    .encode(\"mac_croatian\")\n    .decode(\"koi8_r\")\n    .encode(\"cp875\")\n    .decode(\"cp1252\")\n    .encode(\"cp437\")\n    .decode(\"cp037\")\n)"
+  },
+  {
+    "title": "Misencoding 2: alchemy",
+    "tags": [],
+    "code": "print(\n    \"lead\".encode(\"037\")\n    .decode(\"860\")\n    .encode(\"1026\")\n    .decode(\"koi8_r\")\n    .encode(\"maccyrillic\")\n    .decode(\"932\")\n    .encode(\"jisx0213\")\n    .decode(\"uhc\")\n    .encode(\"johab\")\n    .decode(\"855\")\n    .encode(\"1125\")\n    .decode(\"037\")\n)"
   }
 ]
